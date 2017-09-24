@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block extra_assets %}
+    {% load leaflet_tags %}
+    {% leaflet_js %}
+    {% leaflet_css %}
+{% endblock extra_assets %}
+
+{% block content %}
+    {% leaflet_map "map" callback="main_map_init" %}
+{% endblock content %}
+
+{% block extras_js %}
+    <script type="text/javascript">
+
+        function main_map_init(map, options) {
+
+            var municipios_style = {
+                fillColor: '#82FA58',
+                color: '#0B610B'
+            };
+
+            function onEachFeature(feature, layer) {
+                if (feature.properties && feature.properties.popup_content) {
+                    layer.bindPopup(feature.properties.popup_content);
+                }
+            }
+
+            var municipios_url = "{% url 'basemaps:municipios_geojson' %}";
+            $.getJSON(municipios_url, function (data) {
+                municipios.addData(data);
+            });
+
+            var municipios = L.geoJSON(null, {
+                style: municipios_style,
+                onEachFeature: onEachFeature,
+            });
+
+        }
+
+        var overlays = {'Municípios': municipios};
+
+        L.control.layers(overlays)
+
+    </script>
+{% endblock extras_js %}
