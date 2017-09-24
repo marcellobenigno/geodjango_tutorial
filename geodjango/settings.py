@@ -126,14 +126,15 @@ LEAFLET_CONFIG = {
     'MIN_ZOOM': 1,
     'MAX_ZOOM': 20,
     'SPATIAL_EXTENT': (-38.8050881, -8.342963541, -34.75363733, -5.986627918),
-    'TILES': [('Google Streets', 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
-               {'attribution': '&copy; Google',
-                'maxZoom': 20,
-                'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']
-                }),
-              ('Google Satélite', 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
-               {'attribution': '&copy; Google',
-                'maxZoom': 20,
-                'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']
-                })]
+    'TILES': [],
+    # 'TILES': [('Google Streets', 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
+    #            {'attribution': '&copy; Google',
+    #             'maxZoom': 20,
+    #             'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']
+    #             }),
+    #           ('Google Satélite', 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+    #            {'attribution': '&copy; Google',
+    #             'maxZoom': 20,
+    #             'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']
+    #             })]
 }

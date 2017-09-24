@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView
+from django.shortcuts import render
 from djgeojson.views import GeoJSONLayerView
 
 from .models import Municipio
@@ -9,5 +9,11 @@ class MunicipioGeoJson(GeoJSONLayerView):
     properties = ('popup_content',)
 
 
-class MapView(TemplateView):
-    template_name = 'basemap/map.html'
+def webmap(request):
+    settings_overrides = {
+        'DEFAULT_CENTER': (6.0, 45.0),
+    }
+    context = {
+        'settings_overrides': settings_overrides
+    }
+    return render(request, 'basemap/map.html', context)
