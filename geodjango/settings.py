@@ -138,3 +138,5 @@ LEAFLET_CONFIG = {
     #             'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']
     #             })]
 }
+
+TEST_RUNNER = 'rainbowtests.test.runner.RainbowDiscoverRunner'
