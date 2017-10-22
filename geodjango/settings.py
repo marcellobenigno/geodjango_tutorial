@@ -30,12 +30,15 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     # third apps
     'django_extensions',
+    'test_without_migrations',
     'leaflet',
     'djgeojson',
     'django_activeurl',
+    'bootstrap3',
     # my apps
     'geodjango.core',
     'geodjango.basemap',
+    'geodjango.zoneamento_urbano',
 ]
 
 MIDDLEWARE = [
@@ -125,18 +128,12 @@ LEAFLET_CONFIG = {
     'DEFAULT_ZOOM': 8,
     'MIN_ZOOM': 1,
     'MAX_ZOOM': 20,
-    'SPATIAL_EXTENT': (-38.8050881, -8.342963541, -34.75363733, -5.986627918),
-    'TILES': [],
-    # 'TILES': [('Google Streets', 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
-    #            {'attribution': '&copy; Google',
-    #             'maxZoom': 20,
-    #             'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']
-    #             }),
-    #           ('Google Satélite', 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
-    #            {'attribution': '&copy; Google',
-    #             'maxZoom': 20,
-    #             'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']
-    #             })]
+    # 'SPATIAL_EXTENT': (-38.8050881, -8.342963541, -34.75363733, -5.986627918),
+    # 'TILES': [],
+    'TILES': [('Google Streets', 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
+               {'attribution': '&copy; Google', 'maxZoom': 20, 'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']}), (
+                  'Google Satélite', 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+                  {'attribution': '&copy; Google', 'maxZoom': 20, 'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']})]
 }
 
 TEST_RUNNER = 'rainbowtests.test.runner.RainbowDiscoverRunner'

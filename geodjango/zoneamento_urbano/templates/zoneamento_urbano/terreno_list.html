@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+    <div class="row">
+    <div class="col-md-12">
+
+        <h1>Terrnos</h1>
+        <hr>
+
+        <div class="col-md-12">
+
+            <a href="{% url 'zoneamento_urbano:terreno_new' %}">Cadastrar novo terreno</a>
+
+            {% bootstrap_messages %}
+
+            {% if terreno_list %}
+
+
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Endereço</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for terreno in terreno_list %}
+
+                        <tr>
+                            <th>{{ forloop.counter }}</th>
+                            <td>{{ terreno.endereco }}</td>
+                            <td>
+                                {#                                <a href="{% url 'hidrology:barragem_edit' barragem.pk %}">Editar</a> |#}
+                                {#                                <a href="{% url 'hidrology:barragem_delete' barragem.pk %}">Apagar</a> |#}
+
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+
+            {% else %}
+
+                <h3>Sem registros...</h3>
+
+            {% endif %}
+
+
+        </div><!-- col-md-12 -->
+    </div><!-- row -->
+
+{% endblock content %}
+
+{% block extras_js %}
+    <script type="text/javascript">
+        $(".alert").show().delay(3000).fadeOut();
+    </script>
+{% endblock %}

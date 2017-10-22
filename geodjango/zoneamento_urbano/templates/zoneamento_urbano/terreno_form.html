@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load leaflet_tags %}
+
+
+{% block extra_assets %}
+    {% leaflet_js plugins="forms" %}
+    {% leaflet_css plugins="forms" %}
+{% endblock extra_assets %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <h1>{{ title }}</h1>
+            <hr>
+
+            <form action="." method="post" class="form">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">Enviar
+                    </button>
+                {% endbuttons %}
+            </form>
+
+        </div><!-- col-md-12 -->
+    </div><!-- row -->
+
+{% endblock content %}

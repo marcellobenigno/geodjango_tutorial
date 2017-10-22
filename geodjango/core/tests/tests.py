@@ -4,7 +4,7 @@ from django.test import TestCase
 
 class HomeTest(TestCase):
     def setUp(self):
-        self.response = self.client.get(r('core:home'))
+        self.response = self.client.get(r('home'))
 
     def test_get(self):
         """GET / must return status code 200"""
@@ -16,5 +16,5 @@ class HomeTest(TestCase):
 
     def test_subscription_link(self):
         """Must have a link to home"""
-        expected = 'href="{}"'.format(r('core:home'))
+        expected = 'href="{}"'.format(r('home'))
         self.assertContains(self.response, expected)
